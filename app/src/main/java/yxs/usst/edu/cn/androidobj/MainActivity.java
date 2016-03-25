@@ -1,5 +1,6 @@
 package yxs.usst.edu.cn.androidobj;
 
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,7 +10,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import org.w3c.dom.Text;
@@ -23,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
     boolean flag = false;
     Button changeView;
     TextView imgName;
-    ImageView imageView;
+    FrameLayout background;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         clear = (Button) findViewById(R.id.clearBtn);
         changeView = (Button) findViewById(R.id.changeBtn);
         imgName = (TextView) findViewById(R.id.imageName);
-        imageView = (ImageView) findViewById(R.id.imageView);
+        background = (FrameLayout) findViewById(R.id.backgroundImg);
 
         userName.addTextChangedListener(new TextWatcher() {
             @Override
@@ -111,14 +114,13 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String name = imgName.getText().toString();
                 if(name.equals("芙兰朵露")) {
-                    Drawable drawable = getResources().getDrawable(R.drawable.bilibili);
-                    imageView.setImageDrawable(drawable);
+                    background.setBackgroundResource(R.drawable.bilibili);
                     imgName.setText("bilibili");
                 } else if(name.equals("bilibili")) {
-                    Drawable drawable = getResources().getDrawable(R.drawable.show);
-                    imageView.setImageDrawable(drawable);
+                    background.setBackgroundResource(R.drawable.show);
                     imgName.setText("芙兰朵露");
                 }
+                imgName.setTextColor(Color.WHITE);
             }
         });
 
