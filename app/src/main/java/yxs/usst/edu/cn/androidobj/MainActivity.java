@@ -1,7 +1,7 @@
 package yxs.usst.edu.cn.androidobj;
 
+import android.content.Intent;
 import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
@@ -11,11 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
-
-import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -27,19 +23,30 @@ public class MainActivity extends AppCompatActivity {
     Button changeView;
     TextView imgName;
     FrameLayout background;
+    Button changeActivity;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         userName = (EditText) findViewById(R.id.inputUserName);
         userPwd = (EditText) findViewById(R.id.inputUserPwd);
-        userPwd.setLeft(userName.getLeft());
 
         login = (Button) findViewById(R.id.loginBtn);
         clear = (Button) findViewById(R.id.clearBtn);
         changeView = (Button) findViewById(R.id.changeBtn);
         imgName = (TextView) findViewById(R.id.imageName);
         background = (FrameLayout) findViewById(R.id.backgroundImg);
+        changeActivity = (Button) findViewById(R.id.changeActivity);
+
+        changeActivity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(MainActivity.this, ListViewUse.class); //从IntentActivity跳转到SubActivity
+                intent.putExtra("name", "richard");  //放入数据
+                startActivity(intent);
+            }
+        });
 
         userName.addTextChangedListener(new TextWatcher() {
             @Override
@@ -49,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if(s.length() > 0) {
+                if (s.length() > 0) {
                     flag = true;
                 } else {
                     flag = false;
@@ -71,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if(s.length() > 0) {
+                if (s.length() > 0) {
                     flag = true;
                 } else {
                     flag = false;
@@ -86,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        if(flag) {
+        if (flag) {
             login.setEnabled(true);
             clear.setEnabled(true);
         }
@@ -113,10 +120,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String name = imgName.getText().toString();
-                if(name.equals("芙兰朵露")) {
+                if (name.equals("芙兰朵露")) {
                     background.setBackgroundResource(R.drawable.bilibili);
                     imgName.setText("bilibili");
-                } else if(name.equals("bilibili")) {
+                } else if (name.equals("bilibili")) {
                     background.setBackgroundResource(R.drawable.show);
                     imgName.setText("芙兰朵露");
                 }
