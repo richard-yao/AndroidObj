@@ -1,7 +1,6 @@
 package yxs.usst.edu.cn.androidobj;
 
 import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
@@ -11,11 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
-
-import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -33,7 +28,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         userName = (EditText) findViewById(R.id.inputUserName);
         userPwd = (EditText) findViewById(R.id.inputUserPwd);
-        userPwd.setLeft(userName.getLeft());
 
         login = (Button) findViewById(R.id.loginBtn);
         clear = (Button) findViewById(R.id.clearBtn);
