@@ -15,7 +15,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ListViewUse"></activity>
+        <activity
+            android:name=".ListViewUse"
+            android:label="@string/app_name">
+        </activity>
+        <activity
+            android:name=".TestActivity"
+            android:label="@string/app_name">
+        </activity>
     </application>
 
 </manifest>

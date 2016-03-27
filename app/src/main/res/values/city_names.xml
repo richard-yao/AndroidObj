@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="city_names">
+        <item>上海</item>
+        <item>蚌埠</item>
+        <item>安徽</item>
+        <item>中国</item>
+    </string-array>
+
+</resources>

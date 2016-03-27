@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
     Button changeView;
     TextView imgName;
     FrameLayout background;
-    Button changeActivity;
+    Button changeActivity,changeActivity1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,12 +37,23 @@ public class MainActivity extends AppCompatActivity {
         imgName = (TextView) findViewById(R.id.imageName);
         background = (FrameLayout) findViewById(R.id.backgroundImg);
         changeActivity = (Button) findViewById(R.id.changeActivity);
+        changeActivity1 = (Button) findViewById(R.id.changeActivity1);
 
         changeActivity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent();
                 intent.setClass(MainActivity.this, ListViewUse.class); //从IntentActivity跳转到SubActivity
+                intent.putExtra("name", "richard");  //放入数据
+                startActivity(intent);
+            }
+        });
+
+        changeActivity1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(MainActivity.this, TestActivity.class); //从IntentActivity跳转到SubActivity
                 intent.putExtra("name", "richard");  //放入数据
                 startActivity(intent);
             }

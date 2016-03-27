@@ -3,4 +3,5 @@
     <string name="user_name">Username:</string>
     <string name="user_pwd">Passwd:</string>
     <string name="list_view">ListView</string>
+    <string name="list_activity">ListActivity</string>
 </resources>
